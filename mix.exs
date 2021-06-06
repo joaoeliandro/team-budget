@@ -10,7 +10,14 @@ defmodule TeamBudget.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -44,7 +51,12 @@ defmodule TeamBudget.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:absinthe, "~> 1.6"},
+      {:absinthe_relay, "~> 1.5", override: true},
+      {:absinthe_plug, "~> 1.5", override: true},
+      {:absinthe_phoenix, "~> 2.0"},
+      {:absinthe_error_payload, "~> 1.1"}
     ]
   end
 
