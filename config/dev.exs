@@ -4,7 +4,6 @@ use Mix.Config
 config :team_budget, TeamBudget.Repo,
   username: "postgres",
   password: "postgres",
-  port: 5432,
   database: "team_budget_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
